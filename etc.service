@@ -1,0 +1,16 @@
+[Unit]
+
+Description= etc 
+
+[Service]
+WorkingDirectory=/data/etc/
+User=root
+ExecStart=/data/etc/geth --classic --datadir "/data/etc/data"  --http  --http.port 50006 --http.addr 0.0.0.0
+
+Restart=always
+RestartSec=3s
+TimeoutStopSec=5
+LimitNOFILE=49152
+
+[Install]
+WantedBy=multi-user.target
